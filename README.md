@@ -38,13 +38,10 @@ cd tabchi
 ```sh
 
 cd tabchi
-./bot fix
-./bot update
 killall tmux
 killall bash
-killall nohup
 killall screen
-tmux ./bot autolaunch
+screen ./bot autolaunch
 
 
 ```
