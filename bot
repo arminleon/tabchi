@@ -2,7 +2,7 @@
 
 ## VARIABLES
 THIS_DIR=$(cd "$(dirname "$0")"; pwd)
-TDCLI='https://valtman.name/files/telegram-cli-1014'
+TDCLI='https://valtman.name/files/telegram-cli-1222'
 
 ## Print Colorful
 # Print text in red
