@@ -4,7 +4,8 @@
 
 </h4>
 <pre>
-<span>sudo apt-get update; sudo apt-get upgrade; sudo apt-get install tmux; sudo apt-get install luarocks; sudo apt-get install screen; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev; sudo apt-get update; sudo apt-get install; sudo apt-get install upstart-sysv;
+<span>
+sudo apt-get update; sudo apt-get upgrade; sudo apt-get install tmux; sudo apt-get install luarocks; sudo apt-get install screen; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev; sudo apt-get update; sudo apt-get install; sudo apt-get install upstart-sysv;
 </span>
 </pre>
 <hr>
@@ -14,6 +15,7 @@
 # Install
 
 ```sh
+
 git clone https://github.com/KingArmin/tabchi.git
 cd tabchi
 chmod +x bot
@@ -23,6 +25,7 @@ chmod +x bot
 * * *
 ## Create BOT
 ```
+
 ./bot create
 ./bot 1
 
@@ -30,6 +33,7 @@ chmod +x bot
 ## Create More BOT
 
 ```sh
+
 cd tabchi
 ./bot create
 ./bot 2
@@ -44,7 +48,6 @@ killall tmux
 killall bash
 killall screen
 screen ./bot autolaunch
-
 
 ```
 ***
