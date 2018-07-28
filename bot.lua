@@ -409,7 +409,7 @@ Max SGP: ]] .. tostring(maxsg)..[[
                                             from_background_ = 1
                                             }, dl_cb, nil)
                                       elseif text:match("([Hh]elp)") then
-                                        local txt = '/stats\nB-O-T States \n\n/time [SEC]\n Time Sender\n\n/maxgap [NUM]\nMeximum SuperGroups\n\n/setowner [ID]\nAdd To B-O-T Admins\n\n/remowner [ID]\nDelete B-O-T Admin\n\n/refresh\nRerfresh B-O-T\n\n/reload\nReset B-O-T\n\n/markread [ON|OFF]\nSeen Chats\n\n/send [Text|Reply]\nForward Your ADS\n\n/setname [NAME]\nSet B-O-T Name\n\n/setusername [ID]\nSet B-O-T Username\n\n/delusername\nDelete B-O-T Username\n\n/say [TEXT]\nSend Your Text In Chat\n\n/online\nTest B-O-T Online\n\n/addallgap [ID]\nAdd User To All SuperGroup\n\n\n Send Link Groups For Automatic B-O-T Join ...'
+                                        local txt = '/stats\nB-O-T States \n\n/time [SEC]\n Time Sender\n\n/maxgap [NUM]\nMeximum SuperGroups\n\n/setowner [ID]\nAdd To B-O-T Admins\n\n/remowner [ID]\nDelete B-O-T Admin\n\n/refresh\nRerfresh B-O-T\n\n/reload\nReset B-O-T\n\n/markread [ON|OFF]\nSeen Chats\n\n/send [Reply]\nForward Your ADS\n\n/setname [NAME]\nSet B-O-T Name\n\n/setusername [ID]\nSet B-O-T Username\n\n/delusername\nDelete B-O-T Username\n\n/say [TEXT]\nSend Your Text In Chat\n\n/online\nTest B-O-T Online\n\n/addallgap [ID]\nAdd User To All SuperGroup'
                                         return send(msg.chat_id_,msg.id_, txt)
                                       end
                                     end		
