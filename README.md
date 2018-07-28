@@ -10,7 +10,6 @@ sudo apt-get update; sudo apt-get upgrade; sudo apt-get install tmux; sudo apt-g
 </pre>
 <hr>
 
-* * *
 
 # Install
 
