@@ -27,7 +27,6 @@ chmod +x bot
 ```
 ./bot create
 ./bot 1
-
 ```
 ## Create More BOT
 
