@@ -51,7 +51,7 @@ function get_bot (i, adigram)
       var = true
     end
     return var
-  end
+ end
   function writefile(filename, input)
     local file = io.open(filename, "w")
     file:write(input)
@@ -81,15 +81,15 @@ function get_bot (i, adigram)
       redis:srem("botBOT-IDwaitelinks", i.link)
     end
   end
-function find_link(text)
-	if text:match("https://telegram.me/joinchat/%S+") or text:match("https://t.me/joinchat/%S+") or text:match("https://telegram.dog/joinchat/%S+") then
-		local text = text:gsub("t.me", "telegram.me")
-		local text = text:gsub("telegram.dog", "telegram.me")
-		for link in text:gmatch("(https://telegram.me/joinchat/%S+)") do
-			if not redis:sismember("botBOT-IDalllinks", link) then
-				redis:sadd("botBOT-IDwaitelinks", link)
-				redis:sadd("botBOT-IDalllinks", link)
-			end
+  function find_link(text)
+    if text:match("https://telegram.me/joinchat/%S+") or text:match("https://t.me/joinchat/%S+") or text:match("https://telegram.dog/joinchat/%S+") then
+      local text = text:gsub("t.me", "telegram.me")
+      local text = text:gsub("telegram.dog", "telegram.me")
+      for link in text:gmatch("(https://telegram.me/joinchat/%S+)") do
+        if not redis:sismember("botBOT-IDalllinks", link) then
+          redis:sadd("botBOT-IDwaitelinks", link)
+          redis:sadd("botBOT-IDalllinks", link)
+        end
       end
     end
   end
@@ -150,7 +150,7 @@ function find_link(text)
           if redis:scard("botBOT-IDwaitelinks") ~= 0 then
             local links = redis:smembers("botBOT-IDwaitelinks")
             for x,y in pairs(links) do
-              if x == 11 then redis:setex("botBOT-IDmaxlink", 600, true) return end
+              if x == 11 then redis:setex("botBOT-IDmaxlink", 60, true) return end
               tdcli_function({ID = "CheckChatInviteLink",invite_link_ = y},process_link, {link=y})
               end
             end
@@ -163,7 +163,7 @@ function find_link(text)
                 local maxsg = redis:get("botBOT-IDmaxsg") or 200
                 if tonumber(sgps) < tonumber(maxsg) then
                   tdcli_function({ID = "ImportChatInviteLink",invite_link_ = y},process_join, {link=y})
-                    if x == 4 then redis:setex("botBOT-IDmaxjoin", 600, true) return end
+                    if x == 4 then redis:setex("botBOT-IDmaxjoin", 60, true) return end
                   end
                 end
               end
