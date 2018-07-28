@@ -12,7 +12,7 @@
 # Install
 
 ```sh
-git clone https://github.com/KingArmin/tabchi
+git clone https://github.com/KingArmin/tabchi.git
 cd tabchi
 chmod +x bot
 ./bot install
