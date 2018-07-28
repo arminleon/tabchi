@@ -81,15 +81,15 @@ function get_bot (i, adigram)
       redis:srem("botBOT-IDwaitelinks", i.link)
     end
   end
-  function find_link(text)
-    if text:match("https://t.me/joinchat/%S+") or text:match("https://telegram.me/joinchat/%S+") or text:match("https://telegram.dog/joinchat/%S+") then
-      local text = text:gsub("t.me", "telegram.me")
-      local text = text:gsub("telegram.dog", "telegram.me")
-      for link in text:gmatch("(https://t.me/joinchat/%S+)") do
-        if not redis:sismember("botBOT-IDalllinks", link) then
-          redis:sadd("botBOT-IDwaitelinks", link)
-          redis:sadd("botBOT-IDalllinks", link)
-        end
+function find_link(text)
+	if text:match("https://telegram.me/joinchat/%S+") or text:match("https://t.me/joinchat/%S+") or text:match("https://telegram.dog/joinchat/%S+") then
+		local text = text:gsub("t.me", "telegram.me")
+		local text = text:gsub("telegram.dog", "telegram.me")
+		for link in text:gmatch("(https://telegram.me/joinchat/%S+)") do
+			if not redis:sismember("botBOT-IDalllinks", link) then
+				redis:sadd("botBOT-IDwaitelinks", link)
+				redis:sadd("botBOT-IDalllinks", link)
+			end
       end
     end
   end
