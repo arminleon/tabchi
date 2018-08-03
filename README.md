@@ -15,7 +15,7 @@ sudo apt-get update; sudo apt-get upgrade; sudo apt-get install tmux; sudo apt-g
 
 ```sh
 
-git clone https://github.com/KingArmin/tabchi
+git clone https://github.com/arminleon/tabchi
 cd tabchi
 chmod +x bot
 ./bot install
