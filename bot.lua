@@ -6,7 +6,7 @@ end
 
 local clock = os.clock
 function sleep(s)
-  local delay = redis:get("botBOT-IDdelay") or 30
+  local delay = redis:get("botBOT-IDdelay") or 10
   local randomdelay = math.random (tonumber(delay)- (tonumber(delay)/2), tonumber(delay)+ (tonumber(delay)/2))
   local t0 = clock()
   while clock() - t0 <= tonumber(randomdelay) do end
@@ -160,7 +160,7 @@ function get_bot (i, adigram)
               local links = redis:smembers("botBOT-IDgoodlinks")
               for x,y in pairs(links) do
                 local sgps = redis:scard("botBOT-IDsupergroups")
-                local maxsg = redis:get("botBOT-IDmaxsg") or 200
+                local maxsg = redis:get("botBOT-IDmaxsg") or 5000
                 if tonumber(sgps) < tonumber(maxsg) then
                   tdcli_function({ID = "ImportChatInviteLink",invite_link_ = y},process_join, {link=y})
                     if x == 2 then redis:setex("botBOT-IDmaxjoin", 600, true) return end
@@ -409,7 +409,7 @@ Max SGP: ]] .. tostring(maxsg)..[[
                                             from_background_ = 1
                                             }, dl_cb, nil)
                                       elseif text:match("([Hh]elp)") then
-                                        local txt = 'T-A-B Helper\n\n/stats\nB-O-T States \n\n/time [SEC]\n Time Sender\n\n/maxgap [NUM]\nMeximum SuperGroups\n\n/setowner [ID]\nAdd To B-O-T Admins\n\n/remowner [ID]\nDelete B-O-T Admin\n\n/refresh\nRerfresh B-O-T\n\n/reload\nReset B-O-T\n\n/markread [ON|OFF]\nSeen Chats\n\n/send [Reply]\nForward Your ADS\n\n/setname [NAME]\nSet B-O-T Name\n\n/setusername [ID]\nSet B-O-T Username\n\n/delusername\nDelete B-O-T Username\n\n/say [TEXT]\nSend Your Text In Chat\n\n/online\nTest B-O-T Online\n\n/addallgap [ID]\nAdd User To All SuperGroup'
+                                        local txt = 'T-A-B Helper\n\n/stats\nB-O-T States \n\n/time [SEC]\n Time Sender\n\n/maxgap [NUM]\nMeximum SuperGroups\n\n/setowner [ID]\nAdd To B-O-T Admins\n\n/remowner [ID]\nDelete B-O-T Admin\n\n/refresh\nRerfresh B-O-T\n\n/reload\nReset B-O-T\n\n/markread [ON|OFF]\nSeen Chats\n\n/send [Reply]\nForward Your ADS\n\n/setname [NAME]\nSet B-O-T Name\n\n/setusername [ID]\nSet B-O-T Username\n\n/delusername\nDelete B-O-T Username\n\n/say [TEXT]\nSend Your Text In Chat\n\n/online\nTest B-O-T Online\n\n/addallgap [ID]\nAdd User To All SuperGroup\n\nCreated By @ArminDev'
                                         return send(msg.chat_id_,msg.id_, txt)
                                       end
                                     end		
@@ -429,7 +429,7 @@ Max SGP: ]] .. tostring(maxsg)..[[
                                               },
                                             },
                                             }, dl_cb, nil)
-                                        return send (msg.chat_id_, msg.id_, "Added To My Contact")
+                                        return send (msg.chat_id_, msg.id_, "Add")
                                       end
                                     elseif msg.content_.ID == "MessageChatDeleteMember" and msg.content_.id_ == bot_id then
                                       return rem(msg.chat_id_)
